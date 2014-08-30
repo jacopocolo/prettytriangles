@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Pretty geometric</title>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1" />
+
+    <script type='text/javascript' src='http://code.jquery.com/jquery-2.1.0.js'></script>
+
+    <link rel="stylesheet" type="text/css" href="stile.css">
+
+    <script type='text/javascript' src="http://www.jacopocolo.com/heartbeat/js/randomColor.js"></script>
+    <script type='text/javascript' src="http://fgnass.github.io/spin.js/spin.js"></script>
+    <script type='text/javascript' src="http://fgnass.github.io/spin.js/jquery.spin.js"></script>
+
+
+</head>
+
+<body>
+    <canvas id="sketch"></canvas>
+    <div id="overlay">
+        <div id="title">
+            <h1>Pretty triangles</h1>
+            <h2>A background generator for phones and tablets</h2>
+
+        </div>
+    </div>
+    <div id="inputscontanier">
+        <div id="container">
+            <form id="randomform"> <span id="randomLabel">Random</span> 
+                <input id="randomcheckbox" type="checkbox" checked="true" value="true" name="random" onclick="onOffButtons();" />
+                <label for="randomcheckbox"></label>
+            </form>
+            <form class="separator">
+                <label for="buttons-color">Color</label>
+                <button type='button' id="colorful" class="color" onclick="setColorful(); $('.color').removeClass('selectedButton'); $(this).addClass('selectedButton');" disabled>Colorful</button>
+                <button type='button' id="mono" class="color" onclick="setMono(); $('.color').removeClass('selectedButton'); $(this).addClass('selectedButton');" disabled>Mono</button>
+                <button type='button' id="palette" class="color" onclick="setPalette(); $('.color').removeClass('selectedButton'); $(this).addClass('selectedButton');" disabled>Palette</button>
+            </form>
+            <form class="separator">
+                <label for="buttons-pattern">Style</label>
+                <button type='button' id="full" class="pattern" onclick="setFull(); $('.pattern').removeClass('selectedButton'); $(this).addClass('selectedButton');" disabled>Full</button>
+                <button type='button' id="stroke" class="pattern" onclick="setStroke(); $('.pattern').removeClass('selectedButton'); $(this).addClass('selectedButton');" disabled>Stroke</button>
+                <button type='button' id="pattern" class="pattern" onclick="setPattern(); $('.pattern').removeClass('selectedButton'); $(this).addClass('selectedButton');" disabled>Pattern</button>
+            </form>
+            <form class="separator">
+                <label>Size</label>
+                <input type="range" id="sizes" min="0" disabled></input>
+            </form>
+        </div>
+    </div>
+    <button type='button' id="settings" onclick="openSettings();">Settings</button>
+    <button type='button' id="savethis" onclick="saveThis();">Save this</button>
+    <button type='button' id="generator" onclick="setLoading(); $('#overlay').fadeOut(); setTimeout(generate,60);">Generate</button>
+</body>
+<script type='text/javascript' src="script.js"></script>
+
+</html>
